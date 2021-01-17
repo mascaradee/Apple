@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>mascaradee</groupId>
+	<artifactId>Apple</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<encoding>UTF-8</encoding>
+		<java-version>1.8</java-version>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<org.aspectj-version>1.8.0</org.aspectj-version>
+		<logback-version>1.2.3</logback-version>
+	</properties>
+
+	<!-- 빌드 -->
+	<build>
+		<finalName>laboratory</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+					<encoding>${encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+				<configuration>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<!-- <warSourceExcludes>api/**, css/**, error/**, guide/**, js/**, img/**, 
+						pub/**, pub/**, template/**</warSourceExcludes> -->
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- 원격 저장소 설정 -->
+	<repositories>
+		<repository>
+			<id>Datanucleus</id>
+			<url>http://www.datanucleus.org/downloads/maven2/</url>
+		</repository>
+	</repositories>
+
+	<!-- 라이브러리 -->
+	<dependencies>
+		<!-- unit test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.1</version>
+			<!-- <version>LATEST</version> -->
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JDBC -->
+		<!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
+		<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
